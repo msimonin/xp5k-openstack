@@ -5,7 +5,8 @@
 class scenario::openstack (
   String $package_provider = $scenario::openstack::params::package_provider,
   String $admin_password = $scenario::openstack::params::admin_password,
-  String $primary_interface = $scenario::openstack::params::primary_interface
+  String $primary_interface = $scenario::openstack::params::primary_interface,
+  Boolean $install_tempest = $scenario::openstack::params::install_tempest
 ) inherits scenario::openstack::params {
 
   class { 'scenario::openstack::mysql': }
@@ -30,6 +31,13 @@ class scenario::openstack (
   class {
     'scenario::openstack::nova':
       admin_password => $admin_password;
+  }
+  
+  if $install_tempest {
+    class {
+      'scenario::openstack::tempest':
+        admin_password => $admin_password;
+    }
   }
 
 }

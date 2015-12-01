@@ -6,6 +6,7 @@ class scenario::openstack::params {
 
   $admin_password = 'admin'
   $primary_interface = 'eth0'
+  $install_tempest = false
 
   case $::osfamily {
     'Debian': {
