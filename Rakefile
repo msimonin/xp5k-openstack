@@ -7,6 +7,17 @@ require 'xp5k/rake' # Extend rake DSL to add role method and on method (ssh comm
 require 'hiera'
 require 'ipaddr'
 
+# we add the ssh key used for the deployment to the on method.
+module XP5K::Rake::DSL
+  original_test = instance_method(:on)
+  puts original_test.inspect
+  define_method :on do |hosts, *args, &block|
+    options = args.last.class == Hash ? args.pop : {}
+    options[:ssh] =  {:keys => ['/tmp/sshkey']}
+    args << options
+    original_test.bind(self).call(hosts, *args, &block)
+  end
+end
 
 # Constants
 #
