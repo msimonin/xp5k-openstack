@@ -14,9 +14,10 @@ class scenario::openstack::horizon {
     cache_server_ip    => '127.0.0.1',
     cache_server_port  => '11211',
     secret_key         => '12345',
-    #swift              => false,
+    #swift             => false,
     django_debug       => 'True',
     api_result_limit   => '2000',
+    allowed_hosts      => '*',
     vhost_extra_params =>  { 'port' => '8080' };
   }
 
