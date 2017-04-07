@@ -11,7 +11,7 @@ class scenario::openstack::params {
     'Debian': {
       include ::apt
       class { '::openstack_extras::repo::debian::ubuntu':
-        release         => 'liberty',
+        release         => 'mitaka',
         repo            => 'proposed',
         package_require => true,
       }

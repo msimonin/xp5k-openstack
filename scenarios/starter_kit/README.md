@@ -1,6 +1,6 @@
 # scenario : starter_kit
 
-This scenario install Openstack Liberty on a single node with the following components :
+This scenario install Openstack Mitaka on a single node with the following components :
 * Keystone
 * Glance
 * Neutron
