@@ -26,8 +26,9 @@ class scenario::openstack::neutron (
   class { '::neutron::client': }
   class { '::neutron::server':
     database_connection => 'mysql://neutron:neutron@127.0.0.1/neutron?charset=utf8',
-    auth_password       => $admin_password,
-    identity_uri        => 'http://127.0.0.1:35357/',
+    password            => $admin_password,
+    auth_uri            => 'http://127.0.0.1:5000/',
+    auth_url            => 'http://127.0.0.1:35357/',
     sync_db             => true,
   }
   class { '::neutron::plugins::ml2':
@@ -59,7 +60,8 @@ class scenario::openstack::neutron (
     debug => true,
   }
   class { '::neutron::server::notifications':
-    nova_admin_password => $admin_password,
+    password => $admin_password,
+    auth_url => "http://127.0.0.1:35357",
   }
 
 }
