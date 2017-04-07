@@ -51,7 +51,7 @@ resources = [] <<
   size: XP5K::Config[:computes].to_i
 })
 
-G5K_NETWORKS = YAML.load_file("scenarios/liberty_multinodes/g5k_networks.yml")
+G5K_NETWORKS = YAML.load_file("scenarios/multinodes/g5k_networks.yml")
 
 # Override role 'all' (tasks/roles.rb)
 #
