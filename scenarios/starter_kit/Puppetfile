@@ -100,7 +100,7 @@ mod 'qpid',
 
 mod 'rabbitmq',
   :git => 'https://github.com/puppetlabs/puppetlabs-rabbitmq',
-  :tag => '5.4.0'
+  :tag => '5.6.0'
 
 mod 'rsync',
   :git => 'https://github.com/puppetlabs/puppetlabs-rsync',
