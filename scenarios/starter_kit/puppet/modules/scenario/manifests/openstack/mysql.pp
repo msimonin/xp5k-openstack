@@ -12,7 +12,8 @@ class scenario::openstack::mysql {
 
   class {
     '::mysql::server':
-      override_options     => $override_options;
+      override_options => $override_options,
+      restart          => true;
   }
 
 }
