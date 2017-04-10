@@ -46,7 +46,6 @@ namespace :scenario do
       'scenario:os:flavors',
       'scenario:os:images',
       'scenario:os:network',
-      'scenario:horizon_access'
     ]
     workflow.each do |task|
       Rake::Task[task].execute
@@ -139,13 +138,6 @@ namespace :scenario do
         cmd << %{neutron router-gateway-set main_router public}
         cmd << %{neutron router-interface-add main_router private-subnet}
         cmd
-      end
-    end
-
-    desc 'Init horizon theme'
-    task :horizon do
-      on(roles('controller'), user: 'root') do
-        %{/usr/share/openstack-dashboard/manage.py collectstatic --noinput && /usr/share/openstack-dashboard/manage.py compress --force}
       end
     end
 
