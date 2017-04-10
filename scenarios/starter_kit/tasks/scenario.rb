@@ -42,10 +42,10 @@ namespace :scenario do
     workflow = [
       'scenario:os:rules',
       'scenario:os:public_bridge',
-      'scenario:os:horizon',
       'scenario:os:flavors',
       'scenario:os:images',
       'scenario:os:network',
+      'scenario:horizon_access'
     ]
     workflow.each do |task|
       Rake::Task[task].execute
